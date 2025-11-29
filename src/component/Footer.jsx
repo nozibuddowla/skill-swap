@@ -103,7 +103,7 @@ const Footer = () => {
                 <FaYoutube size={20} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/nozibuddowla/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost btn-circle btn-sm hover:bg-primary hover:text-white transition-all"
@@ -112,7 +112,7 @@ const Footer = () => {
                 <FaFacebookF size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/nozibuddowla/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-ghost btn-circle btn-sm hover:bg-primary hover:text-white transition-all"
