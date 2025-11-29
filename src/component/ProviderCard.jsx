@@ -4,11 +4,11 @@ const ProviderCard = ({ provider }) => {
   const { providerId, name, avatar, rating, bio } = provider;
   return (
     <div className="card bg-base-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-      <figure className="relative px-10 pt-10">
+      <figure className="relative px-5 pt-5">
         <img
           src={avatar}
           alt="Shoes"
-          className="w-64 h-64 object-cover rounded-full"
+          className="w-48 h-48 object-cover rounded-full"
         />
       </figure>
       <div className="card-body items-center text-center">
