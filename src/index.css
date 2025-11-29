@@ -7,3 +7,18 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.mySwiper .swiper-slide img{
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+.mySwiper .swiper-slide-active img{
+  transform: scale(1.05);
+}
+.slider-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.45) 100%);
+}
+.swiper-slide-active .slide-text {
+  transform: translateY(0);
+  opacity: 1;
+}
