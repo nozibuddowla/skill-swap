@@ -30,7 +30,7 @@ const PopularSkillCard = ({ skill }) => {
           <div className="flex items-center gap-2">
             <RatingDisplay value={Number(rating)} size={16} />
 
-            <span className=" text-gray-9500 font-bold">
+            <span className=" text-gray-950 font-bold">
               {rating.toFixed(1)}
             </span>
           </div>

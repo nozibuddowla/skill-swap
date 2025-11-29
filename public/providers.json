@@ -1,0 +1,56 @@
+[
+  {
+    "providerId": 1,
+    "name": "Alex Martin",
+    "email": "alex@skillswap.com",
+    "rating": 4.8,
+    "jobsCompleted": 120,
+    "avatar": "https://i.postimg.cc/yxBtCtyY/ab6761610000517451c977b44e590611a2c235d8.jpg",
+    "bio": "Guitar teacher specializing in acoustic and songwriting."
+  },
+  {
+    "providerId": 2,
+    "name": "Sara Hussein",
+    "email": "sara@skillswap.com",
+    "rating": 4.9,
+    "jobsCompleted": 200,
+    "avatar": "https://i.postimg.cc/50Wk8TGS/1759167410768.jpg",
+    "bio": "Conversation coach and English tutor for all levels."
+  },
+  {
+    "providerId": 3,
+    "name": "Rahim Uddin",
+    "email": "rahim@skillswap.com",
+    "rating": 4.7,
+    "jobsCompleted": 95,
+    "avatar": "https://i.postimg.cc/PxZPN3v6/1739450889586.jpg",
+    "bio": "Web dev mentor: HTML, CSS, JS and small projects."
+  },
+  {
+    "providerId": 4,
+    "name": "Maya Sen",
+    "email": "maya@skillswap.com",
+    "rating": 4.6,
+    "jobsCompleted": 80,
+    "avatar": "https://i.postimg.cc/qv8bX4V4/images.jpg",
+    "bio": "Portrait photographer and lighting expert."
+  },
+  {
+    "providerId": 5,
+    "name": "Tom Reynolds",
+    "email": "tom@skillswap.com",
+    "rating": 4.5,
+    "jobsCompleted": 150,
+    "avatar": "https://i.postimg.cc/4NtkqCkv/images-(1).jpg",
+    "bio": "Certified personal trainer and home fitness coach."
+  },
+  {
+    "providerId": 6,
+    "name": "Lina Chowdhury",
+    "email": "lina@skillswap.com",
+    "rating": 4.7,
+    "jobsCompleted": 90,
+    "avatar": "https://i.postimg.cc/yY0tnFch/8d989e76-8c8c-4046-b570-c11539af356b.webp",
+    "bio": "Chef and culinary instructor specializing in beginner-friendly recipes."
+  }
+]
