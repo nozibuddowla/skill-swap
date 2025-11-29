@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 10,
+    "description": "Acoustic guitar classes for complete beginners. The skill listings offer a diverse range of learning opportunities designed to help beginners and enthusiasts grow at their own pace. Beginner Guitar Lessons provide a friendly introduction to acoustic guitar, focusing on simple chords, basic strumming patterns, and easy songs that help new learners build confidence. Alex Martin ensures that each session feels supportive and enjoyable, making it perfect for students starting from zero.",
+    "image": "https://i.postimg.cc/J7bkmsqw/follow-sheet-music-hispanic-music-teacher-talking-with-student-child-about-playing-song-acoustic-gui.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hussein",
+    "providerEmail": "sara@skillswap.com",
+    "price": 20,
+    "rating": 4.6,
+    "slotsAvailable": 10,
+    "description": "Conversational English sessions for non-native speakers. Spoken English Practice is ideal for learners who want to improve their communication skills in a relaxed and conversational environment. With guidance from Sara Hussein, students participate in interactive discussions, pronunciation exercises, and real-life speaking scenarios that help them become more fluent and comfortable using English in daily life.",
+    "image": "https://i.postimg.cc/J0tcYmf0/spoken-english-practice.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Basic Cooking Workshops",
+    "providerName": "Lina Chowdhury",
+    "providerEmail": "lina@skillswap.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 10,
+    "description": "Learn essential cooking techniques and simple recipes. Basic Cooking Workshops are designed to make cooking approachable for anyone interested in learning practical kitchen skills. Lina Chowdhury teaches essential techniques such as chopping, seasoning, and safe cooking practices, along with simple recipes that students can recreate at home. These workshops emphasize confidence-building and creativity in the kitchen.",
+    "image": "https://i.postimg.cc/Z5G6V4zy/cooking.png",
+    "category": "Cooking"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Intro to Web Development",
+    "providerName": "Rahim Uddin",
+    "providerEmail": "rahim@skillswap.com",
+    "price": 50,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Learn HTML, CSS, and basic JavaScript from scratch. For those interested in technology, Intro to Web Development offers a beginner-friendly path into coding. Rahim Uddin introduces learners to the fundamentals of HTML, CSS, and JavaScript while guiding them through hands-on mini-projects. By the end of the sessions, students gain a solid understanding of how websites are structured and styled.",
+    "image": "https://i.postimg.cc/0NBB8W9v/intro-web-development.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Portrait Photography Basics",
+    "providerName": "Maya Sen",
+    "providerEmail": "maya@skillswap.com",
+    "price": 35,
+    "rating": 4.5,
+    "slotsAvailable": 12,
+    "description": "Hands-on training on lighting, angles, and camera settings. Portrait Photography Basics helps aspiring photographers understand how to capture expressive and professional-looking portraits. Under the guidance of Maya Sen, learners explore natural and artificial lighting, posing techniques, composition rules, and the effective use of camera settings to enhance their images. The sessions focus on practical, real-world shooting scenarios.",
+    "image": "https://i.postimg.cc/rF4c74CG/portrait-photography-basics.jpg",
+    "category": "Art & Creativity"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Fitness & Home Workout Guidance",
+    "providerName": "Tom Reynolds",
+    "providerEmail": "tom@skillswap.com",
+    "price": 25,
+    "rating": 4.4,
+    "slotsAvailable": 16,
+    "description": "Simple daily workout routines you can follow at home. Fitness & Home Workout Guidance supports individuals looking to stay active without needing a gym. Tom Reynolds teaches easy-to-follow routines that improve strength, flexibility, and stamina. The program emphasizes safe exercise practices and consistency, making it suitable for people of all fitness levels.",
+    "image": "https://i.postimg.cc/VsB2tFRX/fitness-and-home-workout-guidance.jpg",
+    "category": "Health & Fitness"
+  }
+]
