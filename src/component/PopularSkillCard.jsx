@@ -1,6 +1,4 @@
 import React from "react";
-import { FaRegStar, FaStar } from "react-icons/fa6";
-import Rating from "react-rating";
 import { Link } from "react-router";
 import RatingDisplay from "./RatingDisplay";
 

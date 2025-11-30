@@ -70,5 +70,77 @@
     "description": "Simple daily workout routines you can follow at home...",
     "image": "https://i.postimg.cc/VsB2tFRX/fitness-and-home-workout-guidance.jpg",
     "category": "Health & Fitness"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Creative Writing & Storytelling",
+    "providerName": "Helen Carter",
+    "providerEmail": "helen@skillswap.com",
+    "price": 28,
+    "rating": 4.7,
+    "slotsAvailable": 8,
+    "description": "Improve your writing with guided storytelling sessions and creative prompts...",
+    "image": "https://i.postimg.cc/K8xkZch9/creative-writing-and-storytelling.jpg",
+    "category": "Art & Creativity"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Basic Graphic Design with Canva",
+    "providerName": "Omar Siddique",
+    "providerEmail": "omar@skillswap.com",
+    "price": 22,
+    "rating": 4.6,
+    "slotsAvailable": 14,
+    "description": "Learn how to design posters, social media posts, and branding assets using Canva...",
+    "image": "https://i.postimg.cc/gkhbtGC4/basic-graphic-design-with-canva.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 9,
+    "skillName": "Math Tutoring for School Students",
+    "providerName": "Emily Johnson",
+    "providerEmail": "emily@skillswap.com",
+    "price": 18,
+    "rating": 4.8,
+    "slotsAvailable": 20,
+    "description": "Friendly math support covering algebra, geometry, and basic problem-solving...",
+    "image": "https://i.postimg.cc/SRgvvvy7/math-tutoring-for-school-students.jpg",
+    "category": "Education"
+  },
+  {
+    "skillId": 10,
+    "skillName": "Digital Marketing Fundamentals",
+    "providerName": "Kevin Brooks",
+    "providerEmail": "kevin@skillswap.com",
+    "price": 45,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Learn SEO, social media strategies, and basic ad campaigns for beginners...",
+    "image": "https://i.postimg.cc/SKxgYrkF/digital-marketing-fundamentals.jpg",
+    "category": "Business"
+  },
+  {
+    "skillId": 11,
+    "skillName": "Handmade Crafts & DIY Projects",
+    "providerName": "Rina Das",
+    "providerEmail": "rina@skillswap.com",
+    "price": 26,
+    "rating": 4.5,
+    "slotsAvailable": 9,
+    "description": "Create beautiful handmade crafts using simple and accessible materials...",
+    "image": "https://i.postimg.cc/q7TmBTZ0/handmade-crafts-and-DIY-projects.jpg",
+    "category": "Art & Creativity"
+  },
+  {
+    "skillId": 12,
+    "skillName": "Meditation & Stress Relief Sessions",
+    "providerName": "Daniel Moore",
+    "providerEmail": "daniel@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 15,
+    "description": "Guided meditation sessions to help improve focus and reduce stress...",
+    "image": "https://i.postimg.cc/sgHKLjyy/meditation-and-stress-elief-essions.jpg",
+    "category": "Health & Fitness"
   }
 ]

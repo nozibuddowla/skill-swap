@@ -58,6 +58,7 @@ const Slider = () => {
     <div className="w-full relative">
       <Swiper
         modules={[Navigation, Autoplay, Keyboard, EffectFade]}
+        rewind
         navigation
         effect="fade"
         slidesPerView="1"

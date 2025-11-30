@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import MyContainer from "./MyContainer";
-import PopularSkillCard from "./PopularSkillCard";
+import MyContainer from "../component/MyContainer";
+import PopularSkillCard from "../component/PopularSkillCard";
 
-const PopularSkills = () => {
+const Skills = () => {
   const [skills, setSkills] = useState([]);
-
-  const popularSkills = skills.slice(0, 6);
 
   useEffect(() => {
     fetch("./skill-listing-data.json")
@@ -16,21 +14,10 @@ const PopularSkills = () => {
         setSkills([]);
       });
   }, []);
-
-  //   console.log(skills);
-
   return (
-    <div className="py-8 px-7 sm:px-14 md:px-20 lg:px-[110px] xl:px-[130px] 2xl:px-[145px] ">
+    <div className="px-10 sm:px-16 md:px-20 lg:px-28 xl:px-32 py-12">
+      <title>Skills</title>
       <MyContainer>
-        <h2 className="text-center text-3xl md:text-4xl font-extrabold mb-6">
-          Popular Skills
-        </h2>
-
-        <p className="text-center text-sm md:text-base text-gray-600 max-w-2xl mx-auto mb-8">
-          Browse top-rated local skill providers — from music & languages to
-          coding and fitness. Filter, view details, and book a slot.
-        </p>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.length === 0
             ? Array.from({ length: 6 }).map((_, i) => (
@@ -39,7 +26,7 @@ const PopularSkills = () => {
                   className="animate-pulse bg-base-100 h-80 rounded-lg"
                 />
               ))
-            : popularSkills.map((skill) => (
+            : skills.map((skill) => (
                 <PopularSkillCard key={skill.skillId} skill={skill} />
               ))}
         </div>
@@ -48,4 +35,4 @@ const PopularSkills = () => {
   );
 };
 
-export default PopularSkills;
+export default Skills;
