@@ -1,38 +1,76 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyContainer from "../component/MyContainer";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { AuthContext } from "../Provider/AuthProvider";
+import { IoEye, IoEyeOff } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [show, setShow] = useState(second);
-  const { user, setUser, login } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const { user, setUser, login, signInWithGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname ?? "/";
   const navigate = useNavigate();
 
-  if (user) {
-    navigate("/");
-    return;
-  }
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+      return;
+    }
+  }, [user, navigate, from]);
 
   const handleLogin = (event) => {
     event.preventDefault();
 
     const form = event.target;
-    const email = form.email.value;
+    const email = form.email.value.trim();
     const pass = form.password.value;
+
+    if (!email || !pass) {
+      toast.error("Please enter email and password");
+      return;
+    }
+
+    setSubmitting(true);
 
     login(email, pass)
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
+        toast.success("Signup successful!");
+        navigate(from, { replace: true });
+        setSubmitting(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(`Login failed: ${error}`);
+        toast.error(error.message || "Login failed");
+        setSubmitting(false);
       });
   };
 
-  console.log(user);
+  //   console.log(user);
+
+  const handleGoogle = () => {
+    setSubmitting(true);
+    signInWithGoogle()
+      .then((result) => {
+        const googleUser = result?.user;
+        if (googleUser) setUser(googleUser);
+        navigate(from, { replace: true });
+        toast.success("Signed in with Google");
+        navigate(from, { replace: true });
+        setSubmitting(false);
+      })
+      .catch((err) => {
+        console.error("Google sign-in error:", err);
+        toast.error(err?.message || "Google sign-in failed");
+        setSubmitting(false);
+      });
+  };
 
   return (
     <div>
@@ -61,6 +99,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
+                  required
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   placeholder="you@example.com"
                 />
@@ -72,14 +111,20 @@ const Login = () => {
                   <input
                     id="password"
                     name="password"
-                    type="password"
+                    type={show ? "text" : "password"}
+                    required
                     className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="Password"
+                    placeholder="New password"
                   />
                   <button
                     type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
-                  ></button>
+                    onClick={() => setShow(!show)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-700 hover:text-gray-950 transition"
+                    aria-label={show ? "Hide password" : "Show password"}
+                  >
+                    {" "}
+                    {show ? <IoEye /> : <IoEyeOff />}{" "}
+                  </button>
                 </div>
               </div>
 
@@ -106,7 +151,7 @@ const Login = () => {
                 type="submit"
                 className="w-full rounded-lg px-4 py-2.5 bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition disabled:opacity-60"
               >
-                Sign in
+                {submitting ? "Logging in..." : "Sign in"}
               </button>
 
               {/* Divider */}
@@ -122,6 +167,7 @@ const Login = () => {
 
               <button
                 type="button"
+                onClick={handleGoogle}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-xl font-medium text-gray-700 hover:bg-gray-50 transition"
               >
                 <FcGoogle size={20} />

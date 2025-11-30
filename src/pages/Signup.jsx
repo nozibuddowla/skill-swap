@@ -93,8 +93,10 @@ const Signup = () => {
     setSubmitting(true);
     signInWithGoogle()
       .then(() => {
-        toast.success("Signed in with Google");
+        setUser(user);
         navigate("/");
+        toast.success("Signed in with Google");
+
         setSubmitting(false);
       })
       .catch((err) => {
@@ -131,6 +133,7 @@ const Signup = () => {
                   id="name"
                   name="name"
                   type="text"
+                  required
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   placeholder="Enter your Name"
                 />
@@ -142,6 +145,7 @@ const Signup = () => {
                   id="photo"
                   name="photo"
                   type="text"
+                  required
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   placeholder="Enter your Photo URL"
                 />
@@ -153,6 +157,7 @@ const Signup = () => {
                   id="email"
                   name="email"
                   type="email"
+                  required
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   placeholder="Email address"
                 />
@@ -165,6 +170,7 @@ const Signup = () => {
                     id="password"
                     name="password"
                     type={show ? "text" : "password"}
+                    required
                     className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                     placeholder="New password"
                   />
