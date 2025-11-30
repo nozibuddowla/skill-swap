@@ -1,14 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import MyContainer from "./MyContainer";
 import skillSwapLogo from "../assets/skill-swap-icon.png";
 import { Link } from "react-router";
 import MyLink from "./MyLink";
 import { CgMenuGridR } from "react-icons/cg";
 import { FaRegWindowClose } from "react-icons/fa";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
+  const { user, logOut } = useContext(AuthContext);
 
   // close on outside click
   useEffect(() => {
@@ -20,6 +23,16 @@ const Navbar = () => {
     document.addEventListener("pointerdown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.info("Sign-out successful.");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -50,6 +63,35 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex items-center gap-2">
+          {user ? (
+            <div className="flex items-center gap-2">
+              <img
+                src={user.photoURL}
+                alt={user.displayName}
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              {/* Desktop logout */}
+              <button
+                onClick={handleSignOut}
+                className="btn btn-outline btn-error btn-sm hidden lg:inline-flex"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <Link to="/login" className="btn btn-ghost btn-sm hidden lg:flex">
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="btn btn-primary btn-sm hidden lg:flex"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )}
+
           <div className="lg:hidden relative" ref={menuRef}>
             <button
               aria-haspopup="true"
@@ -83,44 +125,42 @@ const Navbar = () => {
                       My Profile
                     </MyLink>
                   </li>
+                  <li>
+                    {user ? (
+                      <div className="mt-3">
+                        <button
+                          onClick={handleSignOut}
+                          className="btn btn-outline btn-error btn-sm w-full"
+                        >
+                          Logout
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mt-3">
+                          <Link
+                            to="/signup"
+                            className="btn btn-primary btn-sm w-full"
+                            onClick={() => setOpen(false)}
+                          >
+                            Sign Up
+                          </Link>
+                        </div>
+                        <div className="mt-3">
+                          <Link
+                            to="/login"
+                            className="btn btn-ghost btn-sm w-full"
+                            onClick={() => setOpen(false)}
+                          >
+                            Login
+                          </Link>
+                        </div>
+                      </>
+                    )}
+                  </li>
                 </ul>
-                <div className="mt-3">
-                  <Link
-                    to="/signup"
-                    className="btn btn-primary btn-sm w-full"
-                    onClick={() => setOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </div>
-
-                <div className="mt-3">
-                  <Link
-                    to="/login"
-                    className="btn btn-ghost btn-sm w-full"
-                    onClick={() => setOpen(false)}
-                  >
-                    Login
-                  </Link>
-                </div>
               </div>
             )}
-          </div>
-
-          <button className="btn btn-outline btn-error btn-sm hidden lg:flex">
-            Logout
-          </button>
-
-          <div className="flex items-center gap-2">
-            <Link to="/login" className="btn btn-ghost btn-sm hidden lg:flex">
-              Login
-            </Link>
-            <Link
-              to="/signup"
-              className="btn btn-primary btn-sm hidden lg:flex"
-            >
-              Sign Up
-            </Link>
           </div>
         </div>
       </MyContainer>

@@ -1,10 +1,53 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyContainer from "../component/MyContainer";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+    const { user, setUser, createUser, updateUser } = useContext(AuthContext);
+    const navigate = useNavigate()
+
+  const handleSignUp = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const pass = form.password.value;
+    //   console.log("signup function entered!", {email, pass});
+    const name = form.name.value;
+    const photo = form.photo.value;
+
+    createUser(email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        // console.log(user);
+
+        updateUser({
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            // console.log(user);
+              setUser({ ...user, displayName: name, photoURL: photo });
+              navigate("/")
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error(error.message);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(error, errorCode, errorMessage);
+        toast.error(errorMessage);
+      });
+  };
+
+//   console.log(user);
+
   return (
     <div>
       <title>Sign Up</title>
@@ -14,22 +57,20 @@ const Signup = () => {
           <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold text-gray-800">
-                Sign in to your account
+                Create a new account
               </h3>
-              <p className="text-sm text-gray-500 mt-2">
-                Enter your details to access your account
-              </p>
+              <p className="text-sm text-gray-500 mt-2">It's quick and easy.</p>
             </div>
 
-            <form className="space-y-5" noValidate>
+            <hr className="my-4 text-base-300" />
+
+            <form
+              onSubmit={handleSignUp}
+              className="fieldset space-y-5"
+              noValidate
+            >
               {/* Name Field */}
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Name
-                </label>
                 <input
                   id="name"
                   name="name"
@@ -41,12 +82,6 @@ const Signup = () => {
 
               {/* Photo URL Field */}
               <div>
-                <label
-                  htmlFor="photo"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Photo
-                </label>
                 <input
                   id="photo"
                   name="photo"
@@ -58,36 +93,24 @@ const Signup = () => {
 
               {/* Email Field */}
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Email
-                </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                  placeholder="you@example.com"
+                  placeholder="Email address"
                 />
               </div>
 
               {/* Password Field */}
               <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Password
-                </label>
                 <div className="relative">
                   <input
                     id="password"
                     name="password"
                     type="password"
                     className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="••••••••"
+                    placeholder="New password"
                   />
                   <button
                     type="button"
@@ -96,30 +119,12 @@ const Signup = () => {
                 </div>
               </div>
 
-              {/* Remember & Forgot */}
-              <div className="flex items-center justify-between text-sm">
-                <label className="inline-flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    name="remember"
-                    className="rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                  />
-                  <span className="text-gray-700">Remember me</span>
-                </label>
-                <Link
-                  to="/forgot"
-                  className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-
               {/* Submit Button */}
               <button
                 type="submit"
                 className="w-full rounded-lg px-4 py-2.5 bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition disabled:opacity-60"
               >
-                Sign in
+                Sign Up
               </button>
 
               {/* Divider */}
@@ -142,12 +147,12 @@ const Signup = () => {
 
               {/* Sign Up Link */}
               <p className="text-sm text-center text-gray-600 mt-6">
-                Already have an account?{" "}
+                {" "}
                 <Link
                   to="/login"
                   className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium"
                 >
-                  Sign in
+                  Already have an account?
                 </Link>
               </p>
             </form>

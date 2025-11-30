@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import MyContainer from "../component/MyContainer";
 import { Link } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const { user, setUser, login } = useContext(AuthContext);
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const pass = form.password.value;
+
+    login(email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    };
+    
+    console.log(user);
+    
+
   return (
     <div>
       <title>Login</title>
@@ -21,15 +44,13 @@ const Login = () => {
               </p>
             </div>
 
-            <form className="space-y-5" noValidate>
+            <form
+              onSubmit={handleLogin}
+              className=" fieldset space-y-5"
+              noValidate
+            >
               {/* Email Field */}
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Email
-                </label>
                 <input
                   id="email"
                   name="email"
@@ -41,19 +62,13 @@ const Login = () => {
 
               {/* Password Field */}
               <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Password
-                </label>
                 <div className="relative">
                   <input
                     id="password"
                     name="password"
                     type="password"
                     className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="••••••••"
+                    placeholder="Password"
                   />
                   <button
                     type="button"
@@ -76,7 +91,7 @@ const Login = () => {
                   to="/forgot"
                   className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium"
                 >
-                  Forgot password?
+                  Forgotten account?
                 </Link>
               </div>
 
@@ -109,12 +124,11 @@ const Login = () => {
 
               {/* Sign Up Link */}
               <p className="text-sm text-center text-gray-600 mt-6">
-                Don't have an account?{" "}
                 <Link
                   to="/signup"
                   className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium"
                 >
-                  Create one
+                  Create new account
                 </Link>
               </p>
             </form>
