@@ -98,22 +98,14 @@ const Login = () => {
               </div>
 
               {/* Social Login Buttons */}
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
-                >
-                  <FcGoogle size={20} />
-                  Google
-                </button>
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
-                >
-                  <FaGithub size={20} />
-                  GitHub
-                </button>
-              </div>
+
+              <button
+                type="button"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-xl font-medium text-gray-700 hover:bg-gray-50 transition"
+              >
+                <FcGoogle size={20} />
+                Google
+              </button>
 
               {/* Sign Up Link */}
               <p className="text-sm text-center text-gray-600 mt-6">
