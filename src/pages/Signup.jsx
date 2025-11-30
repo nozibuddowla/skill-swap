@@ -1,23 +1,58 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyContainer from "../component/MyContainer";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Signup = () => {
-    const { user, setUser, createUser, updateUser } = useContext(AuthContext);
-    const navigate = useNavigate()
+  const [show, setShow] = useState(false);
+  const { user, setUser, createUser, updateUser, signInWithGoogle } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const [passwordError, setPasswordError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+      return;
+    }
+  }, [user, navigate]);
+
+  const validatePassword = (password) => {
+    if (password.length < 6) {
+      return "Password must be at least 6 characters.";
+    }
+    if (!/[A-Z]/.test(password)) {
+      return "Password must contain at least one uppercase letter.";
+    }
+    if (!/[a-z]/.test(password)) {
+      return "Password must contain at least one uppercase letter.";
+    }
+
+    return "";
+  };
 
   const handleSignUp = (event) => {
     event.preventDefault();
+    setPasswordError("");
 
     const form = event.target;
-    const email = form.email.value;
-    const pass = form.password.value;
-    //   console.log("signup function entered!", {email, pass});
-    const name = form.name.value;
-    const photo = form.photo.value;
+    const email = form.email.value.trim();
+    const pass = form.password.value.trim();
+    const name = form.name.value.trim();
+    const photo = (form.photo.value || "").trim();
+
+    const passErr = validatePassword(pass);
+    if (passErr) {
+      setPasswordError(passErr);
+      return;
+    }
+
+    setSubmitting(true);
 
     createUser(email, pass)
       .then((userCredential) => {
@@ -25,28 +60,49 @@ const Signup = () => {
         // console.log(user);
 
         updateUser({
-          displayName: name,
-          photoURL: photo,
+          displayName: name || user.displayName,
+          photoURL: photo || user.photoURL,
         })
           .then(() => {
             // console.log(user);
-              setUser({ ...user, displayName: name, photoURL: photo });
-              navigate("/")
+            setUser({
+              ...user,
+              displayName: name || user.displayName,
+              photoURL: photo || user.photoURL,
+            });
+            toast.success("Signup successful!");
+            navigate("/");
+            setSubmitting(false);
           })
-          .catch((error) => {
-            console.log(error);
-            toast.error(error.message);
+          .catch((err) => {
+            console.error("Profile update error: ", err);
+            toast.error(err.message || "Failed to update profile");
+            setSubmitting(false);
           });
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(error, errorCode, errorMessage);
-        toast.error(errorMessage);
+        console.error("Signup error:", error);
+        toast.error(error.message || "Signup failed");
+        setSubmitting(false);
       });
   };
 
-//   console.log(user);
+  //   console.log(user);
+
+  const handleGoogle = () => {
+    setSubmitting(true);
+    signInWithGoogle()
+      .then(() => {
+        toast.success("Signed in with Google");
+        navigate("/");
+        setSubmitting(false);
+      })
+      .catch((err) => {
+        console.error("Google sign-in error:", err);
+        toast.error(err.message || "Google sign-in failed");
+        setSubmitting(false);
+      });
+  };
 
   return (
     <div>
@@ -108,15 +164,23 @@ const Signup = () => {
                   <input
                     id="password"
                     name="password"
-                    type="password"
+                    type={show ? "text" : "password"}
                     className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                     placeholder="New password"
                   />
                   <button
                     type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 transition"
-                  ></button>
+                    onClick={() => setShow(!show)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-700 hover:text-gray-950 transition"
+                    aria-label={show ? "Hide password" : "Show password"}
+                  >
+                    {" "}
+                    {show ? <IoEye /> : <IoEyeOff />}{" "}
+                  </button>
                 </div>
+                {passwordError && (
+                  <p className="text-red-600 mt-2.5"> {passwordError} </p>
+                )}
               </div>
 
               {/* Submit Button */}
@@ -124,7 +188,7 @@ const Signup = () => {
                 type="submit"
                 className="w-full rounded-lg px-4 py-2.5 bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition disabled:opacity-60"
               >
-                Sign Up
+                {submitting ? "Signing up..." : "Sign Up"}
               </button>
 
               {/* Divider */}
@@ -139,6 +203,7 @@ const Signup = () => {
               {/* Social Login Buttons */}
               <button
                 type="button"
+                onClick={handleGoogle}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
               >
                 <FcGoogle size={20} />

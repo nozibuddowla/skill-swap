@@ -1,12 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import MyContainer from "../component/MyContainer";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa6";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const [show, setShow] = useState(second);
   const { user, setUser, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  if (user) {
+    navigate("/");
+    return;
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,10 +30,9 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
-    };
-    
-    console.log(user);
-    
+  };
+
+  console.log(user);
 
   return (
     <div>
