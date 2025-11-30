@@ -93,6 +93,16 @@ const Navbar = () => {
                     Sign Up
                   </Link>
                 </div>
+
+                <div className="mt-3">
+                  <Link
+                    to="/login"
+                    className="btn btn-ghost btn-sm w-full"
+                    onClick={() => setOpen(false)}
+                  >
+                    Login
+                  </Link>
+                </div>
               </div>
             )}
           </div>
@@ -102,9 +112,9 @@ const Navbar = () => {
           </button>
 
           <div className="flex items-center gap-2">
-            <button className="btn btn-ghost btn-sm hidden lg:flex">
+            <Link to="/login" className="btn btn-ghost btn-sm hidden lg:flex">
               Login
-            </button>
+            </Link>
             <Link
               to="/signup"
               className="btn btn-primary btn-sm hidden lg:flex"
