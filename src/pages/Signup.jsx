@@ -15,6 +15,13 @@ const Signup = () => {
   const [passwordError, setPasswordError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  useEffect(() => {
+      if (user) {
+        navigate("/");
+        return;
+      }
+    }, [user, navigate]);
+
   const validatePassword = (password) => {
     if (password.length < 6) {
       return "Password must be at least 6 characters.";
@@ -64,7 +71,6 @@ const Signup = () => {
               photoURL: photo || user.photoURL,
             });
             toast.success("Signup successful!");
-            navigate("/");
             setSubmitting(false);
           })
           .catch((err) => {
@@ -87,7 +93,6 @@ const Signup = () => {
     signInWithGoogle()
       .then(() => {
         setUser(user);
-        navigate("/");
         toast.success("Signed in with Google");
 
         setSubmitting(false);

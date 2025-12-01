@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import MyContainer from "../component/MyContainer";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa6";
 import { AuthContext } from "../Provider/AuthProvider";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { toast } from "react-toastify";
@@ -15,12 +14,16 @@ const Login = () => {
     useContext(AuthContext);
   const location = useLocation();
   const from = location.state || "/";
+  // console.log(location);
+
   const navigate = useNavigate();
 
-  if (user) {
-    navigate("/");
-    return;
-  }
+  useEffect(() => {
+    if (user) {
+      navigate(from);
+      return;
+    }
+  }, [user, navigate, from]);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -41,9 +44,8 @@ const Login = () => {
         const user = userCredential.user;
         setUser(user);
         toast.success("Signup successful!");
-        navigate(from);
-          setSubmitting(false);
-          event.target.reset();
+        setSubmitting(false);
+        event.target.reset();
       })
       .catch((error) => {
         console.log(`Login failed: ${error}`);
@@ -61,7 +63,6 @@ const Login = () => {
         const googleUser = result?.user;
         setUser(googleUser);
         toast.success("Signed in with Google");
-        navigate(from);
         setSubmitting(false);
       })
       .catch((err) => {
