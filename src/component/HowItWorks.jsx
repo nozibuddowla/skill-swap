@@ -38,7 +38,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="py-16 md:py-24 lg:py-32 px-4 bg-linear-to-b from-gray-50 to-white">
+    <div className="py-8 lg:py-16 px-4 bg-linear-to-b from-gray-50 to-white">
       <MyContainer>
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
