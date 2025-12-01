@@ -8,14 +8,17 @@ import Profile from "../pages/Profile";
 import PrivateRoutes from "./PrivateRoutes";
 import SkillDetails from "../pages/SkillDetails";
 import ForgotPassword from "../pages/ForgotPassword";
+import ErrorPage from "../component/ErrorPage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout></RootLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home></Home>,
       },
       {
@@ -50,11 +53,11 @@ const router = createBrowserRouter([
         path: "/forgot-password/:email",
         element: <ForgotPassword></ForgotPassword>,
       },
-      {
-        path: "/*",
-        element: <h2>Error404</h2>,
-      },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage></NotFoundPage>,
   },
 ]);
 
