@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import MyContainer from "../component/MyContainer";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { IoEye, IoEyeOff } from "react-icons/io5";
@@ -10,17 +10,20 @@ const Signup = () => {
   const [show, setShow] = useState(false);
   const { user, setUser, createUser, updateUser, signInWithGoogle } =
     useContext(AuthContext);
+  const location = useLocation()
   const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const [passwordError, setPasswordError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-      if (user) {
-        navigate("/");
-        return;
-      }
-    }, [user, navigate]);
+    if (user) {
+      navigate(from);
+      return;
+    }
+  }, [user, navigate]);
 
   const validatePassword = (password) => {
     if (password.length < 6) {
@@ -91,10 +94,10 @@ const Signup = () => {
   const handleGoogle = () => {
     setSubmitting(true);
     signInWithGoogle()
-      .then(() => {
-        setUser(user);
+      .then((result) => {
+        const googleUser = result?.user;
+        setUser(googleUser);
         toast.success("Signed in with Google");
-
         setSubmitting(false);
       })
       .catch((err) => {

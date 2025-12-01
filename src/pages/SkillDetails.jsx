@@ -8,7 +8,7 @@ import { BsClock } from "react-icons/bs";
 import RatingDisplay from "../component/RatingDisplay";
 import { BiUser } from "react-icons/bi";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const SkillDetails = () => {
   const { id } = useParams();
@@ -16,7 +16,16 @@ const SkillDetails = () => {
 
   //   console.log(skills);
 
-  const skill = skills.find((skill) => skill.skillId === parseInt(id));
+  // const skill = skills.find((skill) => skill.skillId === parseInt(id));
+
+  const [skill, setSkill] = useState(null);
+
+  useEffect(() => {
+    if (!loading && Array.isArray(skills)) {
+      const found = skills.find((s) => s.skillId === parseInt(id));
+      setSkill(found || null);
+    }
+  }, [skills, loading, id]);
 
   //   console.log(skill, skillId);
 
