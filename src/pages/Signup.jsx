@@ -10,7 +10,7 @@ const Signup = () => {
   const [show, setShow] = useState(false);
   const { user, setUser, createUser, updateUser, signInWithGoogle } =
     useContext(AuthContext);
-  const location = useLocation()
+  const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
@@ -33,9 +33,14 @@ const Signup = () => {
       return "Password must contain at least one uppercase letter.";
     }
     if (!/[a-z]/.test(password)) {
-      return "Password must contain at least one uppercase letter.";
+      return "Password must contain at least one lowercase letter.";
     }
-
+    if (!/[0-9]/.test(password)) {
+      return "Password must contain at least one number.";
+    }
+    if (!/[!@#$%^&*]/.test(password)) {
+      return "Password must contain at least one special character (!@#$%^&*).";
+    }
     return "";
   };
 
@@ -84,7 +89,24 @@ const Signup = () => {
       })
       .catch((error) => {
         console.error("Signup error:", error);
-        toast.error(error.message || "Signup failed");
+
+        if (error.code === "auth/email-already-in-use") {
+          toast.error(
+            "This email is already registered. Please login instead."
+          );
+        } else if (error.code === "auth/invalid-email") {
+          toast.error("Invalid email address. Please enter a valid email.");
+        } else if (error.code === "auth/operation-not-allowed") {
+          toast.error(
+            "Email/password accounts are not enabled. Contact support."
+          );
+        } else if (error.code === "auth/weak-password") {
+          toast.error(
+            "Password is too weak. Please use at least 6 characters."
+          );
+        } else {
+          toast.error(error.message || "Signup failed. Please try again.");
+        }
         setSubmitting(false);
       });
   };
@@ -102,7 +124,29 @@ const Signup = () => {
       })
       .catch((err) => {
         console.error("Google sign-in error:", err);
-        toast.error(err.message || "Google sign-in failed");
+
+        if (err.code === "auth/popup-closed-by-user") {
+          toast.error("Google sign-in was closed before completion.");
+        } else if (err.code === "auth/cancelled-popup-request") {
+          toast.error(
+            "Previous Google sign-in attempt was cancelled. Please try again."
+          );
+        } else if (
+          err.code === "auth/account-exists-with-different-credential"
+        ) {
+          toast.error(
+            "An account already exists with the same email but different sign-in method."
+          );
+        } else if (err.code === "auth/network-request-failed") {
+          toast.error(
+            "Network error. Please check your connection and try again."
+          );
+        } else {
+          toast.error(
+            err.message || "Google sign-in failed. Please try again."
+          );
+        }
+
         setSubmitting(false);
       });
   };

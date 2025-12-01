@@ -3,6 +3,7 @@ import MyContainer from "../component/MyContainer";
 import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -16,8 +17,23 @@ const Profile = () => {
 
   const handleUpdateProfile = (event) => {
     event.preventDefault();
-    const name = event.target.name.value;
-    const photo = event.target.photo.value;
+    const name = event.target.name.value.trim();
+    const photo = event.target.photo.value.trim();
+
+    const updates = [];
+
+    if (name && name !== user.displayName) {
+      updates.push("name");
+    }
+
+    if (photo && photo !== user.photoURL) {
+      updates.push("photo");
+    }
+
+    if (updates.length === 0) {
+      toast.info("No changes made to update.");
+      return;
+    }
 
     updateProfile(auth.currentUser, {
       displayName: name,
@@ -25,9 +41,26 @@ const Profile = () => {
     })
       .then(() => {
         setUser({ ...user, displayName: name, photoURL: photo });
+
+        let message = "";
+        if (updates.length === 1) {
+          message = `${updates[0]} updated successfully!`;
+        } else {
+          message = `${updates.join(" and ")} updated successfully!`;
+        }
+
+        toast.success(message);
       })
       .catch((err) => {
         console.error(err);
+
+        if (err.code === "auth/requires-recent-login") {
+          toast.error("Please re-login to update your profile.");
+        } else if (err.code === "auth/invalid-profile-update") {
+          toast.error("Invalid profile update. Please check your inputs.");
+        } else {
+          toast.error(err.message || "Failed to update profile.");
+        }
       });
   };
 

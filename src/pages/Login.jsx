@@ -50,7 +50,27 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(`Login failed: ${error}`);
-        toast.error(error.message || "Login failed");
+        let message = "Login failed. Please try again.";
+
+        if (error.code === "auth/invalid-email") {
+          message = "The email address is not valid.";
+        } else if (error.code === "auth/user-disabled") {
+          message = "This user account has been disabled.";
+        } else if (error.code === "auth/user-not-found") {
+          message = "No user found with this email.";
+        } else if (error.code === "auth/wrong-password") {
+          message = "Incorrect password. Please try again.";
+        } else if (error.code === "auth/too-many-requests") {
+          message = "Too many failed login attempts. Try again later.";
+        } else if (error.code === "auth/cancelled-popup-request") {
+          message = "Popup request was cancelled. Please try again.";
+        } else if (error.code === "auth/invalid-credential") {
+          message = "The credential is invalid or has expired.";
+        } else if (error.message) {
+          message = error.message;
+        }
+
+        toast.error(message);
         setSubmitting(false);
       });
   };
@@ -63,12 +83,32 @@ const Login = () => {
       .then((result) => {
         const googleUser = result?.user;
         setUser(googleUser);
-        toast.success("Signed in with Google");
+        toast.success("Signed in successfully with Google");
         setSubmitting(false);
       })
       .catch((err) => {
         console.error("Google sign-in error:", err);
-        toast.error(err?.message || "Google sign-in failed");
+        if (err.code === "auth/popup-closed-by-user") {
+          toast.error("Google sign-in was closed before completion.");
+        } else if (err.code === "auth/cancelled-popup-request") {
+          toast.error(
+            "Previous Google sign-in attempt was cancelled. Please try again."
+          );
+        } else if (
+          err.code === "auth/account-exists-with-different-credential"
+        ) {
+          toast.error(
+            "An account already exists with the same email but different sign-in method."
+          );
+        } else if (err.code === "auth/network-request-failed") {
+          toast.error(
+            "Network error. Please check your connection and try again."
+          );
+        } else {
+          toast.error(
+            err.message || "Google sign-in failed. Please try again."
+          );
+        }
         setSubmitting(false);
       });
   };
