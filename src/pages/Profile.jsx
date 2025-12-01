@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { toast } from "react-toastify";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Profile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -79,45 +80,54 @@ const Profile = () => {
           <button onClick={toggleOpen} className="btn btn-primary">
             Update Profile
           </button>
-          {isOpen && (
-            <div className="bg-white p-8 rounded-3xl shadow-2xl border border-purple-100 max-w-2xl mx-auto">
-              <form
-                onSubmit={handleUpdateProfile}
-                className=" fieldset space-y-6"
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div
+                key="profile-form"
+                initial={{ opacity: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white p-8 rounded-3xl shadow-2xl border border-purple-100 max-w-2xl mx-auto"
               >
-                <div>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="Your Name"
-                    defaultValue={user?.displayName}
-                  />
-                </div>
-
-                <div>
-                  <div className="relative">
+                <form
+                  onSubmit={handleUpdateProfile}
+                  className=" fieldset space-y-6"
+                >
+                  <div>
                     <input
-                      name="photo"
+                      name="name"
                       type="text"
                       required
-                      className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                      placeholder="Your Photo URL"
-                      defaultValue={user?.photoURL}
+                      className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                      placeholder="Your Name"
+                      defaultValue={user?.displayName}
                     />
                   </div>
-                </div>
 
-                <button
-                  type="submit"
-                  className="btn -translate-y-1/2 bg-gray-950 text-white/75 hover:text-white/95 transition"
-                >
-                  Update
-                </button>
-              </form>
-            </div>
-          )}
+                  <div>
+                    <div className="relative">
+                      <input
+                        name="photo"
+                        type="text"
+                        required
+                        className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                        placeholder="Your Photo URL"
+                        defaultValue={user?.photoURL}
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn -translate-y-1/2 bg-gray-950 text-white/75 hover:text-white/95 transition"
+                  >
+                    Update
+                  </button>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </MyContainer>
     </div>

@@ -7,6 +7,7 @@ import { CgMenuGridR } from "react-icons/cg";
 import { FaRegWindowClose } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -107,60 +108,69 @@ const Navbar = () => {
             </button>
 
             {/* Dropdown menu */}
-            {open && (
-              <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 p-3">
-                <ul className="space-y-2">
-                  <li>
-                    <MyLink to="/" onClick={() => setOpen(false)}>
-                      Home
-                    </MyLink>
-                  </li>
-                  <li>
-                    <MyLink to="/skills" onClick={() => setOpen(false)}>
-                      Skills
-                    </MyLink>
-                  </li>
-                  <li>
-                    <MyLink to="/profile" onClick={() => setOpen(false)}>
-                      My Profile
-                    </MyLink>
-                  </li>
-                  <li>
-                    {user ? (
-                      <div className="mt-3">
-                        <button
-                          onClick={handleSignOut}
-                          className="btn btn-outline btn-error btn-sm w-full"
-                        >
-                          Logout
-                        </button>
-                      </div>
-                    ) : (
-                      <>
+            <AnimatePresence>
+              {open && (
+                <motion.div
+                  key="navbar-menu"
+                  initial={{ opacity: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50 p-3"
+                >
+                  <ul className="space-y-2">
+                    <li>
+                      <MyLink to="/" onClick={() => setOpen(false)}>
+                        Home
+                      </MyLink>
+                    </li>
+                    <li>
+                      <MyLink to="/skills" onClick={() => setOpen(false)}>
+                        Skills
+                      </MyLink>
+                    </li>
+                    <li>
+                      <MyLink to="/profile" onClick={() => setOpen(false)}>
+                        My Profile
+                      </MyLink>
+                    </li>
+                    <li>
+                      {user ? (
                         <div className="mt-3">
-                          <Link
-                            to="/signup"
-                            className="btn btn-primary btn-sm w-full"
-                            onClick={() => setOpen(false)}
+                          <button
+                            onClick={handleSignOut}
+                            className="btn btn-outline btn-error btn-sm w-full"
                           >
-                            Sign Up
-                          </Link>
+                            Logout
+                          </button>
                         </div>
-                        <div className="mt-3">
-                          <Link
-                            to="/login"
-                            className="btn btn-ghost btn-sm w-full"
-                            onClick={() => setOpen(false)}
-                          >
-                            Login
-                          </Link>
-                        </div>
-                      </>
-                    )}
-                  </li>
-                </ul>
-              </div>
-            )}
+                      ) : (
+                        <>
+                          <div className="mt-3">
+                            <Link
+                              to="/signup"
+                              className="btn btn-primary btn-sm w-full"
+                              onClick={() => setOpen(false)}
+                            >
+                              Sign Up
+                            </Link>
+                          </div>
+                          <div className="mt-3">
+                            <Link
+                              to="/login"
+                              className="btn btn-ghost btn-sm w-full"
+                              onClick={() => setOpen(false)}
+                            >
+                              Login
+                            </Link>
+                          </div>
+                        </>
+                      )}
+                    </li>
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </MyContainer>
