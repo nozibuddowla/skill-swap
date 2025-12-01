@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <Skills></Skills>,
       },
       {
-        path: "skills/:skillId",
+        path: "skills/:id",
         element: (
           <PrivateRoutes>
             <SkillDetails></SkillDetails>
