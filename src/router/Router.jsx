@@ -7,6 +7,7 @@ import Signup from "../pages/Signup";
 import Profile from "../pages/Profile";
 import PrivateRoutes from "./PrivateRoutes";
 import SkillDetails from "../pages/SkillDetails";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/forgot-password/:email",
+        element: <ForgotPassword></ForgotPassword>,
       },
       {
         path: "/*",

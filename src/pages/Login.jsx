@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyContainer from "../component/MyContainer";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FcGoogle } from "react-icons/fc";
@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 const Login = () => {
   const [show, setShow] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+
+  const [email, setEmail] = useState("");
 
   const { user, setUser, login, signInWithGoogle, setLoading } =
     useContext(AuthContext);
@@ -73,6 +75,12 @@ const Login = () => {
         toast.error(message);
         setSubmitting(false);
       });
+  };
+
+  const handleForgetPassword = () => {
+    // console.log(email);
+    navigate(`/forgot-password/${email || ""}`);
+    
   };
 
   //   console.log(user);
@@ -140,6 +148,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
+                  onChange={e => setEmail(e.target.value)}
                   required
                   className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
                   placeholder="you@example.com"
@@ -179,12 +188,13 @@ const Login = () => {
                   />
                   <span className="text-gray-700">Remember me</span>
                 </label>
-                <Link
-                  to="/forgot"
+                <button
+                  type="button"
+                  onClick={handleForgetPassword}
                   className="text-indigo-600 hover:text-indigo-700 hover:underline font-medium"
                 >
                   Forgotten account?
-                </Link>
+                </button>
               </div>
 
               {/* Submit Button */}
