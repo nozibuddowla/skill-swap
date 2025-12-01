@@ -9,9 +9,9 @@ const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
-    console.log("before click", isOpen);
+    // console.log("before click", isOpen);
     setIsOpen(!isOpen);
-    console.log("after click", isOpen);
+    // console.log("after click", isOpen);
   };
 
   const handleUpdateProfile = (event) => {
@@ -35,7 +35,7 @@ const Profile = () => {
     <div>
       <title>My Profile</title>
       <MyContainer>
-        <div className="flex flex-col justify-center items-center min-h-screen space-y-6">
+        <div className="flex flex-col justify-center items-center min-h-screen space-y-6 py-10">
           <div className="avatar">
             <div className="w-24 rounded-full object-cover border-4 border-primary">
               <img src={user?.photoURL} />
@@ -47,41 +47,43 @@ const Profile = () => {
             Update Profile
           </button>
           {isOpen && (
-            <form
-              onSubmit={handleUpdateProfile}
-              className=" fieldset space-y-6"
-            >
-              <div>
-                <input
-                  name="name"
-                  type="text"
-                  required
-                  className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                  placeholder="Your Name"
-                  defaultValue={user?.displayName}
-                />
-              </div>
-
-              <div>
-                <div className="relative">
+            <div className="bg-white p-8 rounded-3xl shadow-2xl border border-purple-100 max-w-2xl mx-auto">
+              <form
+                onSubmit={handleUpdateProfile}
+                className=" fieldset space-y-6"
+              >
+                <div>
                   <input
-                    name="photo"
+                    name="name"
                     type="text"
                     required
-                    className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
-                    placeholder="Your Photo URL"
-                    defaultValue={user?.photoURL}
+                    className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                    placeholder="Your Name"
+                    defaultValue={user?.displayName}
                   />
                 </div>
-              </div>
 
-              <button
-                type="submit"
-                className="btn -translate-y-1/2 bg-gray-950 text-white/75 hover:text-white/95 transition"
-              >
-                Update
-              </button>
-            </form>
+                <div>
+                  <div className="relative">
+                    <input
+                      name="photo"
+                      type="text"
+                      required
+                      className="block w-full rounded-lg border border-gray-200 px-4 py-2.5 pr-12 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition"
+                      placeholder="Your Photo URL"
+                      defaultValue={user?.photoURL}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="btn -translate-y-1/2 bg-gray-950 text-white/75 hover:text-white/95 transition"
+                >
+                  Update
+                </button>
+              </form>
+            </div>
           )}
         </div>
       </MyContainer>

@@ -7,140 +7,151 @@
     "price": 40,
     "rating": 4.8,
     "slotsAvailable": 10,
-    "description": "Acoustic guitar classes for complete beginners...",
+    "description": "If you’ve always dreamed of picking up a guitar and playing your favorite songs but never knew where to begin, this beginner-friendly class is the perfect starting point. Led by Alex Martin, a patient and passionate musician, this course focuses on building confidence from the very first session. Alex gently guides you through every step—how to hold the guitar properly, how to strum with ease, and how to play simple chords without feeling overwhelmed. Instead of rushing, Alex creates a warm and encouraging space where mistakes are simply part of the learning process. Each lesson is structured to help you learn steadily while keeping everything fun, enjoyable, and stress-free. You’ll also learn to play a couple of easy beginner songs, giving you the excitement of hearing real music come from your own hands. Alex shares small tips, personal stories, and little tricks that he learned over years of playing—things that make the learning journey smoother and more meaningful. By the end of this program, you’ll gain the confidence to practice on your own, understand basic rhythm patterns, and play simple chord progressions without fear. This isn’t just a guitar lesson; it’s the beginning of a new creative chapter. Whether your goal is to perform for friends, play at family gatherings, or simply enjoy music in your spare time, this course provides an inspiring foundation that helps you grow naturally at your own pace. No experience is required—just curiosity and a guitar.",
     "image": "https://i.postimg.cc/J7bkmsqw/follow-sheet-music-hispanic-music-teacher-talking-with-student-child-about-playing-song-acoustic-gui.jpg",
     "category": "Music"
   },
+
   {
     "skillId": 2,
     "skillName": "Spoken English Practice",
     "providerName": "Sara Hussein",
     "providerEmail": "sara@skillswap.com",
-    "price": 20,
-    "rating": 4.6,
-    "slotsAvailable": 10,
-    "description": "Conversational English sessions for non-native speakers...",
+    "price": 30,
+    "rating": 4.9,
+    "slotsAvailable": 8,
+    "description": "This spoken English practice session is designed for learners who want to communicate with clarity, confidence, and fluency in everyday situations. Led by the incredibly warm and motivating instructor, Sara Hussein, the sessions are structured like friendly conversations rather than strict classroom lessons. From the moment you join, Sara makes you feel comfortable—even if you’re shy, nervous, or afraid of making mistakes. She believes that language grows naturally when people feel safe, heard, and supported. During each session, you’ll practice speaking through relatable topics such as daily routines, travel, hobbies, culture, and real-life scenarios. Sara gently corrects your pronunciation, introduces useful expressions, and helps you build natural speech patterns that sound confident and relaxed. You’ll also engage in short storytelling, mini-discussions, and role-play conversations that improve your listening and thinking speed. What makes these sessions special is the personal touch. Sara encourages you to express your own ideas, share your thoughts, and let your natural personality shine through the language. Instead of memorizing phrases or repeating scripted dialogues, you’ll learn how to speak English the way real people do—smoothly, comfortably, and spontaneously. With each meeting, you’ll notice your confidence growing as words flow more effortlessly. By the end of the program, you’ll become much more comfortable speaking with others, participating in discussions, and expressing yourself without hesitation. Whether you’re preparing for interviews, school presentations, or everyday communication, this course guides you toward better fluency in the most encouraging way possible.",
     "image": "https://i.postimg.cc/J0tcYmf0/spoken-english-practice.jpg",
     "category": "Language"
   },
+
   {
     "skillId": 3,
-    "skillName": "Basic Cooking Workshops",
+    "skillName": "Basic Cooking Workshop",
     "providerName": "Lina Chowdhury",
     "providerEmail": "lina@skillswap.com",
-    "price": 30,
+    "price": 25,
     "rating": 4.7,
-    "slotsAvailable": 10,
-    "description": "Learn essential cooking techniques and simple recipes...",
+    "slotsAvailable": 12,
+    "description": "This workshop is perfect for anyone who wants to start cooking simple, tasty meals without stress or complicated techniques. Led by the cheerful and experienced home-chef Lina Chowdhury, this class invites you into a warm and welcoming environment where cooking feels like a creative adventure, not a chore. Lina begins by helping you understand the basics—how to handle ingredients, measure properly, and use everyday kitchen tools with confidence. She breaks down each recipe into easy, manageable steps so even absolute beginners can follow along comfortably. Throughout the session, Lina shares personal tips, family-inspired tricks, and little stories that make every dish feel meaningful and fun. You’ll learn to prepare beginner-friendly meals such as stir-fries, simple curries, pasta dishes, and quick snacks that require minimal ingredients but deliver maximum flavor. Lina focuses on helping you understand the process, not just the recipe, so you can recreate the dishes at home without needing step-by-step instructions. She also teaches essential skills like basic chopping, seasoning, and balancing flavors—skills that give you the confidence to experiment on your own. The workshop ends with a warm, friendly tasting session where everyone shares their creations, celebrates small achievements, and enjoys the joy of homemade food. By the end of this course, you’ll walk away feeling proud, capable, and excited to cook for yourself or your family. Whether you’re a student, a busy professional, or someone who simply wants to learn how to make good food, this workshop gives you the foundation you need to begin your cooking journey with confidence and joy.",
     "image": "https://i.postimg.cc/YC08DNwh/7777339_3744360.jpg",
     "category": "Cooking"
   },
+
   {
     "skillId": 4,
-    "skillName": "Intro to Web Development",
+    "skillName": "Web Development Basics",
     "providerName": "Rahim Uddin",
     "providerEmail": "rahim@skillswap.com",
     "price": 50,
     "rating": 4.9,
     "slotsAvailable": 5,
-    "description": "Learn HTML, CSS, and basic JavaScript from scratch...",
+    "description": "If you’ve ever looked at a website and wondered how it all works, this beginner-friendly web development course is the ideal place to start. Taught by Rahim Uddin, a passionate developer with a talent for explaining complex topics in simple ways, this course introduces you to the building blocks of the modern web. Rahim begins with the absolute essentials—HTML, CSS, and basic JavaScript—guiding you through how websites are structured, how they look, and how they interact with users. Instead of overwhelming you with technical jargon, he breaks everything down into clear, step-by-step lessons that feel more like creative exploration than coding. You’ll build small, practical projects from day one: a personal webpage, a styled layout, and simple interactive elements that respond when users click or type. Rahim also shares real-world developer tips, common mistakes to avoid, and helpful shortcuts that make the coding journey smoother. Beyond the technical skills, Rahim brings a warm, friendly teaching style that motivates you even when the code doesn’t work the first time. He shares stories from his own beginner days, reminding you that every challenge is part of the learning process. By the time you complete the course, you’ll understand how web pages are built, how styling works, and how JavaScript brings websites to life. Most importantly, you'll gain the confidence to continue learning on your own. Whether you dream of becoming a developer or simply want to learn a valuable digital skill, this course gives you the perfect head start.",
     "image": "https://i.postimg.cc/0NBB8W9v/intro-web-development.jpg",
     "category": "Technology"
   },
+
   {
     "skillId": 5,
-    "skillName": "Portrait Photography Basics",
-    "providerName": "Maya Sen",
-    "providerEmail": "maya@skillswap.com",
-    "price": 35,
-    "rating": 4.5,
-    "slotsAvailable": 12,
-    "description": "Hands-on training on lighting, angles, and camera settings...",
-    "image": "https://i.postimg.cc/rF4c74CG/portrait-photography-basics.jpg",
-    "category": "Art & Creativity"
-  },
-  {
-    "skillId": 6,
-    "skillName": "Fitness & Home Workout Guidance",
-    "providerName": "Tom Reynolds",
-    "providerEmail": "tom@skillswap.com",
-    "price": 25,
-    "rating": 4.4,
-    "slotsAvailable": 16,
-    "description": "Simple daily workout routines you can follow at home...",
-    "image": "https://i.postimg.cc/VsB2tFRX/fitness-and-home-workout-guidance.jpg",
-    "category": "Health & Fitness"
-  },
-  {
-    "skillId": 7,
-    "skillName": "Creative Writing & Storytelling",
+    "skillName": "Creative Writing",
     "providerName": "Helen Carter",
     "providerEmail": "helen@skillswap.com",
-    "price": 28,
-    "rating": 4.7,
-    "slotsAvailable": 8,
-    "description": "Improve your writing with guided storytelling sessions and creative prompts...",
+    "price": 35,
+    "rating": 4.6,
+    "slotsAvailable": 9,
+    "description": "If you’ve ever had stories in your mind that you wanted to bring to life, this creative writing class is the perfect place to begin. Led by author and storyteller Helen Carter, this warm and inspiring course helps you discover your own writing voice while building confidence sentence by sentence. Helen starts with the basics—how to create characters that feel real, how to build scenes that come alive, and how to structure a story so readers stay engaged. Instead of strict rules, she offers gentle guidance, encouraging you to explore your imagination freely. Each session includes short writing exercises, storytelling prompts, and reflective discussions that help you express your thoughts more clearly and creatively. Helen shares her own writing experiences—both struggles and successes—making the journey feel relatable and encouraging. You’ll learn techniques for improving description, dialogue, pacing, and emotional impact, all while receiving warm, supportive feedback that helps your skills grow naturally. Whether you enjoy journaling, poetry, short stories, or dream of writing a novel one day, this class helps you unlock your creative potential. By the end of the program, you’ll feel more confident shaping ideas into words, expressing emotions through writing, and sharing your unique stories with others.",
     "image": "https://i.postimg.cc/K8xkZch9/creative-writing-and-storytelling.jpg",
     "category": "Art & Creativity"
   },
+
   {
-    "skillId": 8,
-    "skillName": "Basic Graphic Design with Canva",
-    "providerName": "Omar Siddique",
-    "providerEmail": "omar@skillswap.com",
-    "price": 22,
-    "rating": 4.6,
-    "slotsAvailable": 14,
-    "description": "Learn how to design posters, social media posts, and branding assets using Canva...",
-    "image": "https://i.postimg.cc/gkhbtGC4/basic-graphic-design-with-canva.jpg",
-    "category": "Technology"
-  },
-  {
-    "skillId": 9,
-    "skillName": "Math Tutoring for School Students",
+    "skillId": 6,
+    "skillName": "Math Tutoring",
     "providerName": "Emily Johnson",
     "providerEmail": "emily@skillswap.com",
-    "price": 18,
+    "price": 20,
     "rating": 4.8,
-    "slotsAvailable": 20,
-    "description": "Friendly math support covering algebra, geometry, and basic problem-solving...",
+    "slotsAvailable": 15,
+    "description": "This math tutoring session is designed to transform confusion into clarity through patient, friendly, and easy-to-understand guidance. Emily Johnson, a dedicated math tutor, brings warmth and encouragement into every lesson, helping students overcome fear and build confidence step by step. Instead of forcing formulas and memorization, Emily focuses on understanding—why things work, how to break problems into small steps, and how to see patterns that make math easier. Whether you're struggling with algebra, geometry, or basic arithmetic, Emily tailors each session to your level, ensuring you feel supported and never rushed. She uses relatable examples from everyday life, hands-on explanations, and simple tricks to help concepts click naturally. Emily believes that every student can improve with the right support, and she celebrates even the smallest progress. Over time, students begin to enjoy the process as they grow more confident solving equations, analyzing problems, and thinking mathematically. By the end of the program, you'll not only improve your math skills but also gain the confidence to handle challenges independently.",
     "image": "https://i.postimg.cc/SRgvvvy7/math-tutoring-for-school-students.jpg",
     "category": "Education"
   },
+
+  {
+    "skillId": 7,
+    "skillName": "Photography Basics",
+    "providerName": "Maya Sen",
+    "providerEmail": "maya@skillswap.com",
+    "price": 45,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "This hands-on photography class is perfect for beginners who want to capture beautiful, meaningful images using simple techniques. Led by creative photographer Maya Sen, the course feels more like an artistic adventure than a technical lesson. Maya begins by showing you how to understand your camera—whether it's a DSLR, a mirrorless camera, or even a phone—so you can take control of lighting, focus, and composition. Instead of overwhelming you with settings, she gently guides you through the essentials: framing, angles, natural light, and how to capture emotions in a single shot. You’ll explore indoor and outdoor photography, learning how different environments shape a picture’s mood. Maya shares personal stories from her own journey, reminding you that great photography comes from observation, patience, and creativity. In each session, you’ll practice taking photos, receive kind feedback, and learn how to make everyday moments visually stunning. By the end, you'll feel confident capturing portraits, nature shots, and lifestyle images with intention and artistry.",
+    "image": "https://i.postimg.cc/rF4c74CG/portrait-photography-basics.jpg",
+    "category": "Art & Creativity"
+  },
+
+  {
+    "skillId": 8,
+    "skillName": "Meditation Session",
+    "providerName": "Daniel Moore",
+    "providerEmail": "daniel@skillswap.com",
+    "price": 15,
+    "rating": 4.9,
+    "slotsAvailable": 20,
+    "description": "This meditation session is designed for anyone looking to slow down, breathe deeply, and reconnect with inner calm. Guided by Daniel Moore, a gentle and mindful instructor, these sessions help you release stress and develop a peaceful mental space. Daniel begins with simple breathing techniques that relax your mind, allowing you to ease into the practice without pressure. He then leads you through calming visualizations, grounding exercises, and mindful awareness that help silence mental clutter. Each session feels like stepping out of the noise of everyday life and entering a soothing moment of stillness. Daniel’s voice, warmth, and peaceful guidance make you feel safe and supported throughout the meditation journey. Over time, you’ll learn to manage stress more effectively, rest your mind, and build habits that help you stay grounded even during difficult days. Whether you’re new to meditation or returning after a break, this session offers the perfect space to breathe, relax, and recharge your spirit.",
+    "image": "https://i.postimg.cc/sgHKLjyy/meditation-and-stress-elief-essions.jpg",
+    "category": "Health & Fitness"
+  },
+
+  {
+    "skillId": 9,
+    "skillName": "Home Workout Trainer",
+    "providerName": "Tom Reynolds",
+    "providerEmail": "tom@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 14,
+    "description": "If you want to start exercising from home without feeling overwhelmed by complicated routines, this beginner-friendly fitness session is ideal for you. Led by energetic and supportive trainer Tom Reynolds, these workouts focus on simple movements that require no equipment—just your body and a little motivation. Tom begins with light warm-ups to prepare your muscles, then guides you through basic exercises like squats, lunges, stretching, and core strengthening. His training style is warm, friendly, and highly motivational. He understands that everyone starts at a different level, so he offers easier and harder variations for every movement. Throughout the session, Tom checks your posture, encourages you to listen to your body, and creates a positive environment where progress is celebrated. By the end, you'll feel stronger, more energized, and proud of the effort you've put in. This is more than a workout; it’s a step toward becoming healthier and more confident in your daily life.",
+    "image": "https://i.postimg.cc/VsB2tFRX/fitness-and-home-workout-guidance.jpg",
+    "category": "Health & Fitness"
+  },
+
   {
     "skillId": 10,
-    "skillName": "Digital Marketing Fundamentals",
+    "skillName": "Graphic Design with Canva",
+    "providerName": "Omar Siddique",
+    "providerEmail": "omar@skillswap.com",
+    "price": 22,
+    "rating": 4.8,
+    "slotsAvailable": 11,
+    "description": "If you've ever wanted to design eye-catching posters, social media posts, or school/project graphics but felt intimidated by complex software, this Canva design course is the perfect introduction. Taught by the friendly and creative designer Omar Siddique, this class shows you how to transform simple ideas into beautiful visuals—even if you have zero design experience. Omar begins by walking you through the Canva interface, helping you explore templates, fonts, layouts, and color combinations. His teaching style is relaxed, engaging, and filled with practical tips that make designing fun and stress-free. You’ll create real projects such as posters, announcements, event banners, and personal branding graphics. Omar teaches you how to make your designs clean, professional, and visually balanced using simple rules like spacing, alignment, and contrast. By the end of the course, you'll feel confident creating your own graphics for school, social media, or freelance work. You’ll walk away with new creative skills and a boosted sense of design confidence.",
+    "image": "https://i.postimg.cc/gkhbtGC4/basic-graphic-design-with-canva.jpg",
+    "category": "Technology"
+  },
+
+  {
+    "skillId": 11,
+    "skillName": "Digital Marketing Basics",
     "providerName": "Kevin Brooks",
     "providerEmail": "kevin@skillswap.com",
     "price": 45,
     "rating": 4.7,
-    "slotsAvailable": 6,
-    "description": "Learn SEO, social media strategies, and basic ad campaigns for beginners...",
+    "slotsAvailable": 7,
+    "description": "This beginner-friendly digital marketing course introduces you to the essential tools and strategies used to promote businesses online. Led by digital marketing specialist Kevin Brooks, this class simplifies concepts like SEO, social media marketing, content creation, and basic advertising in a friendly and easy-to-understand way. Kevin starts by explaining how online marketing works and why it’s important in today’s world. You’ll learn how to identify an audience, understand what makes content engaging, and use simple tools to analyze performance. Instead of overwhelming theories, Kevin focuses on real, practical tasks—creating social posts, understanding keywords, and planning basic marketing strategies. His warm teaching style encourages you to ask questions, test ideas, and learn through hands-on activities. By the end of the course, you’ll have a strong foundation in digital marketing and the confidence to apply your skills to small businesses, personal projects, or future freelance work.",
     "image": "https://i.postimg.cc/SKxgYrkF/digital-marketing-fundamentals.jpg",
     "category": "Business"
   },
-  {
-    "skillId": 11,
-    "skillName": "Handmade Crafts & DIY Projects",
-    "providerName": "Rina Das",
-    "providerEmail": "rina@skillswap.com",
-    "price": 26,
-    "rating": 4.5,
-    "slotsAvailable": 9,
-    "description": "Create beautiful handmade crafts using simple and accessible materials...",
-    "image": "https://i.postimg.cc/q7TmBTZ0/handmade-crafts-and-DIY-projects.jpg",
-    "category": "Art & Creativity"
-  },
+
   {
     "skillId": 12,
-    "skillName": "Meditation & Stress Relief Sessions",
-    "providerName": "Daniel Moore",
-    "providerEmail": "daniel@skillswap.com",
-    "price": 18,
-    "rating": 4.6,
-    "slotsAvailable": 15,
-    "description": "Guided meditation sessions to help improve focus and reduce stress...",
-    "image": "https://i.postimg.cc/sgHKLjyy/meditation-and-stress-elief-essions.jpg",
-    "category": "Health & Fitness"
+    "skillName": "Handmade Crafts",
+    "providerName": "Rina Das",
+    "providerEmail": "rina@skillswap.com",
+    "price": 28,
+    "rating": 4.9,
+    "slotsAvailable": 10,
+    "description": "This handmade crafts workshop invites you to slow down, create something meaningful, and explore your creative side using simple materials. Led by the warm and talented Rina Das, this class helps you discover the joy of making art with your hands. Rina begins by introducing basic crafting techniques, such as paper crafting, fabric decoration, simple stitching, and DIY home décor designs. She believes creativity grows when people feel relaxed, so her sessions are calm, friendly, and welcoming—perfect for beginners or anyone seeking a peaceful, creative break. You’ll learn how to make items like handmade cards, small decorative pieces, simple accessories, and giftable crafts using inexpensive materials. Rina shares tips, tricks, and creative ideas from her years of crafting experience, making the process fun and easy for everyone. By the end of the session, you’ll leave with beautiful handmade items, new crafting skills, and a sense of accomplishment.",
+    "image": "https://i.postimg.cc/q7TmBTZ0/handmade-crafts-and-DIY-projects.jpg",
+    "category": "Art & Creativity"
   }
 ]

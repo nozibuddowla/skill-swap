@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Profile from "../pages/Profile";
 import PrivateRoutes from "./PrivateRoutes";
+import SkillDetails from "../pages/SkillDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/skills",
         element: <Skills></Skills>,
+      },
+      {
+        path: "skills/:skillId",
+        element: (
+          <PrivateRoutes>
+            <SkillDetails></SkillDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",

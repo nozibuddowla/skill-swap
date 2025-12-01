@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import MyContainer from "./MyContainer";
 import PopularSkillCard from "./PopularSkillCard";
+import SkillErrorPage from "./SkillErrorPage";
+import useSkills from "../hooks/useSkills";
+import SkeletonLoader from "./SkeletonLoader";
 
 const PopularSkills = () => {
-  const [skills, setSkills] = useState([]);
+  const { skills, loading, error } = useSkills();
+
+  if (error) {
+    return (
+      <SkillErrorPage>
+        {`An error occurred while fetching skill details: ${error.message}`}
+      </SkillErrorPage>
+    );
+  }
 
   const popularSkills = skills.slice(0, 6);
-
-  useEffect(() => {
-    fetch("./skill-listing-data.json")
-      .then((res) => res.json())
-      .then((data) => setSkills(data || []))
-      .catch((err) => {
-        console.error("Failed loading skills:", err);
-        setSkills([]);
-      });
-  }, []);
 
   //   console.log(skills);
 
@@ -31,17 +32,16 @@ const PopularSkills = () => {
           coding and fitness. Filter, view details, and book a slot.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.length === 0
-            ? Array.from({ length: 6 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="animate-pulse bg-base-100 h-80 rounded-lg"
-                />
-              ))
-            : popularSkills.map((skill) => (
+        <div>
+          {loading ? (
+            <SkeletonLoader />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {popularSkills.map((skill) => (
                 <PopularSkillCard key={skill.skillId} skill={skill} />
               ))}
+            </div>
+          )}
         </div>
       </MyContainer>
     </div>

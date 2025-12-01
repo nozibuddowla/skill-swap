@@ -2,7 +2,13 @@ import React from "react";
 import { Link } from "react-router";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Keyboard, Navigation, EffectCards, EffectFade } from "swiper/modules";
+import {
+  Autoplay,
+  Keyboard,
+  Navigation,
+  EffectCards,
+  EffectFade,
+} from "swiper/modules";
 
 import slider1 from "../assets/slider1-skill-sharing.jpg";
 import slider2 from "../assets/slider2-music-learning.jpg";
@@ -22,7 +28,7 @@ const slides = [
     subtitle:
       "Discover local tutors, join workshops, and trade skills with neighbors.",
     ctaText: "Browse Skills",
-    ctaLink: "/browse-skills",
+    ctaLink: "/skills",
   },
   {
     id: 2,
@@ -31,7 +37,7 @@ const slides = [
     subtitle:
       "From beginner guitar to advanced techniques — find your teacher nearby.",
     ctaText: "Find Music Tutors",
-    ctaLink: "/categories/music",
+    ctaLink: "/skills",
   },
   {
     id: 3,
@@ -40,7 +46,7 @@ const slides = [
     subtitle:
       "Conversation partners, language exchanges, and friendly practice sessions.",
     ctaText: "Start Practicing",
-    ctaLink: "/categories/language",
+    ctaLink: "/skills",
   },
   {
     id: 4,
@@ -49,7 +55,7 @@ const slides = [
     subtitle:
       "Guided workouts, yoga classes and personal coaching — no gym needed.",
     ctaText: "View Fitness Classes",
-    ctaLink: "/categories/fitness",
+    ctaLink: "/skills",
   },
 ];
 
