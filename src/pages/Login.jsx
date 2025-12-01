@@ -11,17 +11,16 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const { user, setUser, login, signInWithGoogle } = useContext(AuthContext);
+  const { user, setUser, login, signInWithGoogle, setLoading } =
+    useContext(AuthContext);
   const location = useLocation();
-  const from = location.state?.from?.pathname ?? "/";
+  const from = location.state || "/";
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
-      return;
-    }
-  }, [user, navigate, from]);
+  if (user) {
+    navigate("/");
+    return;
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -42,8 +41,9 @@ const Login = () => {
         const user = userCredential.user;
         setUser(user);
         toast.success("Signup successful!");
-        navigate(from, { replace: true });
-        setSubmitting(false);
+        navigate(from);
+          setSubmitting(false);
+          event.target.reset();
       })
       .catch((error) => {
         console.log(`Login failed: ${error}`);
@@ -59,10 +59,9 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const googleUser = result?.user;
-        if (googleUser) setUser(googleUser);
-        navigate(from, { replace: true });
+        setUser(googleUser);
         toast.success("Signed in with Google");
-        navigate(from, { replace: true });
+        navigate(from);
         setSubmitting(false);
       })
       .catch((err) => {

@@ -19,7 +19,6 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, pass) => {
     //   console.log(email, pass);
-    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, pass);
   };
 
@@ -57,6 +56,8 @@ const AuthProvider = ({ children }) => {
   const authData = {
     user,
     setUser,
+    loading,
+    setLoading,
     createUser,
     updateUser,
     login,
@@ -64,7 +65,9 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
   };
 
-  return <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext value={authData}>{children}</AuthContext>
+  );
 };
 
 export default AuthProvider;
