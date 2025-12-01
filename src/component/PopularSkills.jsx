@@ -1,31 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MyContainer from "./MyContainer";
 import PopularSkillCard from "./PopularSkillCard";
 import SkillErrorPage from "./SkillErrorPage";
 import useSkills from "../hooks/useSkills";
 import SkeletonLoader from "./SkeletonLoader";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PopularSkills = () => {
   const { skills, loading, error } = useSkills();
+  const aosInitialized = useRef(false);
 
   // Initialize AOS
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 200,
-      easing: "ease-in-out-back",
-    });
+    if (!aosInitialized.current) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 200,
+        easing: "ease-in-out-back",
+        disable: window.innerWidth < 768,
+      });
+      aosInitialized.current = true;
+    }
   }, []);
 
   // Refresh AOS on skills load
   useEffect(() => {
     if (!loading && skills.length > 0) {
-      const timer = setTimeout(() => {
+      requestAnimationFrame(() => {
         AOS.refresh();
-      }, 100);
-      return () => clearTimeout(timer);
+      })
     }
   }, [loading, skills.length]);
 
