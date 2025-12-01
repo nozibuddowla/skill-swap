@@ -4,9 +4,30 @@ import PopularSkillCard from "./PopularSkillCard";
 import SkillErrorPage from "./SkillErrorPage";
 import useSkills from "../hooks/useSkills";
 import SkeletonLoader from "./SkeletonLoader";
+import AOS from "aos";
 
 const PopularSkills = () => {
   const { skills, loading, error } = useSkills();
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 200,
+      easing: "ease-in-out-back",
+    });
+  }, []);
+
+  // Refresh AOS on skills load
+  useEffect(() => {
+    if (!loading && skills.length > 0) {
+      const timer = setTimeout(() => {
+        AOS.refresh();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [loading, skills.length]);
 
   if (error) {
     return (
@@ -37,8 +58,15 @@ const PopularSkills = () => {
             <SkeletonLoader />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {popularSkills.map((skill) => (
-                <PopularSkillCard key={skill.skillId} skill={skill} />
+              {popularSkills.map((skill, index) => (
+                <div
+                  key={skill.skillId}
+                  data-aos="fade-up"
+                  data-aos-anchor-placement="top-bottom"
+                  data-aos-delay={index * 100}
+                >
+                  <PopularSkillCard skill={skill} />
+                </div>
               ))}
             </div>
           )}
