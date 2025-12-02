@@ -49,8 +49,8 @@ const HowItWorks = () => {
     <div className="py-8 lg:py-16 px-4 bg-linear-to-b from-gray-50 to-white">
       <MyContainer>
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 p-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm">
+        <div className="text-center mb-12 md:mb-16 animate__animated animate__fadeInDown">
+          <div className="inline-flex items-center gap-2 p-2 bg-white border border-gray-200 rounded-full mb-6 shadow-sm animate__animated animate__pulse animate__infinite">
             <div className="w-8 h-8 flex justify-center items-center bg-gray-100 rounded-full">
               <MdSurroundSound
                 size={16}
@@ -63,11 +63,11 @@ const HowItWorks = () => {
             </span>
           </div>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight max-w-4xl mx-auto px-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight max-w-4xl mx-auto px-2 animate__animated animate__fadeInUp">
             Start In Four Steps And Grow With
           </h2>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight max-w-4xl mx-auto px-2">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 leading-tight max-w-4xl mx-auto px-2 animate__animated animate__fadeInUp animate__delay-1s">
             Local Skill-Sharing Community.
           </h2>
         </div>
@@ -77,8 +77,7 @@ const HowItWorks = () => {
             <React.Fragment key={index}>
               <div className="flex-1 min-w-0">
                 <div
-                  className={`bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full
-                    animate__animated animate__${step.animation}`}
+                  className={`bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full animate__animated animate__${step.animation}`}
                   style={{ animationDelay: `${step.delay}ms` }}
                 >
                   <div
@@ -99,22 +98,24 @@ const HowItWorks = () => {
                     </h3>
 
                     <div className="mx-auto mb-6 flex items-center justify-center w-full h-40 md:h-44 rounded-xl bg-gray-50">
-                      <div className="transform transition-transform duration-300 group-hover:scale-105">
+                      <div className="transform transition-transform duration-500 hover:scale-125">
                         {step.icon}
                       </div>
                     </div>
 
-                    <p className="text-gray-600 text-center">{step.subtitle}</p>
+                    <p className="text-gray-600 text-center text-lg font-medium animate__animated animate__fadeInUp animate__delay-1s">
+                      {step.subtitle}
+                    </p>
                   </div>
                 </div>
               </div>
 
               {index < steps.length - 1 && (
                 <div
-                  className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm -mx-3 z-20"
+                  className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm -mx-3 z-20 animate__animated animate__bounceIn"
                   style={{ animationDelay: `${step.delay + 300}ms` }}
                 >
-                  <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-100">
+                  <div className="flex items-center justify-center w-9 h-9 rounded-full bg-indigo-100 animate__animated animate__heartBeat animate__infinite animate__slower">
                     <FaArrowRight className="text-indigo-600" />
                   </div>
                 </div>
