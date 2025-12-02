@@ -1,16 +1,122 @@
-# React + Vite
+# SkillSwap – A Local Skill Exchange Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkillSwap is an interactive web platform where individuals can offer, learn, and exchange skills within their local community. Whether it’s guitar lessons, coding help, yoga sessions, or language exchange, SkillSwap connects people based on expertise and interests.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo  
+🔗 **[https://skill-swap-nozib.netlify.app/](https://skill-swap-nozib.netlify.app/)**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎯 Purpose of the Project
+The purpose of SkillSwap is to provide a simple, user-friendly platform where users can:
 
-## Expanding the ESLint configuration
+- Discover skill providers in different categories  
+- View detailed skill listings  
+- Connect with providers  
+- Learn, exchange, or offer skills  
+- Manage their own profiles securely  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+It promotes community learning and brings local talents together.
+
+---
+
+## ⭐ Key Features
+
+### 🔐 **Authentication**
+- Email/Password Login & Signup (Firebase Auth)
+- Google Sign-In
+- Password Reset
+- Protected Routes using PrivateRoute
+
+### 🧑‍💼 **Skill Browsing**
+- View all skills
+- Skill search & category-based display  
+- Detailed skill description pages  
+- Dynamic routing: `/skills/:id`
+
+### 👤 **User Profile**
+- View logged-in user information  
+- Update profile details  
+- Logout functionality  
+
+### 🚫 **Access Control**
+- Private pages restricted to authenticated users  
+- Error page & Not Found page
+
+### 🎨 **UI & Animation**
+- Responsive layout using TailwindCSS + DaisyUI  
+- Sliders and interactive sections  
+- Smooth animations using Animate.css, Swiper, AOS, and Framer Motion  
+- Toast notifications using React Toastify
+
+---
+
+## 📦 Technologies & NPM Packages Used
+
+### **Frontend**
+- **React 19**  
+- **Vite**
+- **React Router v7**
+
+### **UI & Styling**
+- **Tailwind CSS**  
+- **DaisyUI**  
+- **Animate.css**  
+- **Swiper**  
+- **AOS (Animate on Scroll)**  
+- **React Icons**
+
+### **State & Utilities**
+- **Axios** 
+- **React Spinners**
+
+### **Animations**
+- **Framer Motion**
+
+### **Notifications**
+- **React Toastify**
+
+### **Authentication**
+- **Firebase Authentication**
+
+### **Dev Tools**
+- ESLint  
+- @vitejs/plugin-react  
+- TypeScript types (`@types/react`, `@types/react-dom`)
+
+---
+
+## 🚀 How to Run Locally
+
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/nozibuddowla/skill-swap.git
+cd skill-swap
+````
+
+### 2. Install dependencies:
+
+```bash
+npm install
+```
+
+### 3. Start development server:
+
+```bash
+npm run dev
+```
+
+### 4. Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
