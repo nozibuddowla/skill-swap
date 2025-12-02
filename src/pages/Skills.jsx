@@ -1,13 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MyContainer from "../component/MyContainer";
 import PopularSkillCard from "../component/PopularSkillCard";
-  import SkillNotFound from "../component/SkillNotFound";
 import SkillErrorPage from "../component/SkillErrorPage";
 import SkeletonLoader from "../component/SkeletonLoader";
 import useSkills from "../hooks/useSkills";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Skills = () => {
   const { skills, loading, error } = useSkills();
+
+  const aosInitialized = useRef(false);
+
+  // Initialize AOS
+  useEffect(() => {
+    if (!aosInitialized.current) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 200,
+        easing: "ease-in-out-back",
+        disable: window.innerWidth < 768,
+      });
+      aosInitialized.current = true;
+    }
+  }, []);
+
+  // Refresh AOS on skills load
+  useEffect(() => {
+    if (!loading && skills.length > 0) {
+      requestAnimationFrame(() => {
+        AOS.refresh();
+      });
+    }
+  }, [loading, skills.length]);
 
   if (error) {
     return (
@@ -33,8 +59,15 @@ const Skills = () => {
             ))
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skills.map((skill) => (
-                <PopularSkillCard key={skill.skillId} skill={skill} />
+              {skills.map((skill, index) => (
+                <div
+                  key={skill.skillId}
+                  data-aos="fade-up"
+                  data-aos-anchor-placement="top-bottom"
+                  data-aos-delay={index * 100}
+                >
+                  <PopularSkillCard skill={skill} />
+                </div>
               ))}
             </div>
           )}

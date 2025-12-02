@@ -16,24 +16,32 @@ const HowItWorks = () => {
       title: "Create Your Profile",
       subtitle: "Easy Debiturn!",
       icon: <FaRegUser size={44} className="text-indigo-600" />,
+      animation: "fadeInUp",
+      delay: 200,
     },
     {
       number: "STEP TWO",
       title: "Choose Skills",
       subtitle: "Super Fast!",
       icon: <FaRegClock size={44} className="text-indigo-600" />,
+      animation: "fadeInUp",
+      delay: 500,
     },
     {
       number: "STEP THREE",
       title: "Learn & Teach",
       subtitle: "Smahhhrt!",
       icon: <BsBook size={44} className="text-indigo-600" />,
+      animation: "fadeInUp",
+      delay: 800,
     },
     {
       number: "STEP FOUR",
       title: "Grow Together",
       subtitle: "Easy Process!",
       icon: <FaArrowTrendUp size={44} className="text-indigo-600" />,
+      animation: "fadeInUp",
+      delay: 1100,
     },
   ];
 
@@ -68,7 +76,11 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <React.Fragment key={index}>
               <div className="flex-1 min-w-0">
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-lg transition-shadow duration-400 relative h-full">
+                <div
+                  className={`bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 h-full
+                    animate__animated animate__${step.animation}`}
+                  style={{ animationDelay: `${step.delay}ms` }}
+                >
                   <div
                     className="absolute inset-0 rounded-2xl pointer-events-none z-0"
                     style={{
@@ -92,9 +104,7 @@ const HowItWorks = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 text-center">
-                      {step.subtitle}
-                    </p>
+                    <p className="text-gray-600 text-center">{step.subtitle}</p>
                   </div>
                 </div>
               </div>
@@ -102,7 +112,7 @@ const HowItWorks = () => {
               {index < steps.length - 1 && (
                 <div
                   className="hidden lg:flex items-center justify-center w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm -mx-3 z-20"
-                  aria-hidden
+                  style={{ animationDelay: `${step.delay + 300}ms` }}
                 >
                   <div className="flex items-center justify-center w-9 h-9 rounded-full bg-gray-100">
                     <FaArrowRight className="text-indigo-600" />
